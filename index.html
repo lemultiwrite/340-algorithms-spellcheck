@@ -80,7 +80,7 @@
       // final (bottom-right) cell.
       const rows = word1.length + 1;
       const cols = word2.length + 1;
-      const arr = Array.from({ length: rows}, () => Array(cols).fill(0));
+      const arr = Array.from({ length: rows}, () => Array(cols).fill(0)); //build grid
 
       for (let i = 0; i < rows; i++)
       {
@@ -144,7 +144,7 @@
         results.push ({ word: dictWord, score: score}); // add the word and score as objects to results list
       }
 
-      results.sort(function(a, b) 
+      results.sort(function(a, b) //comparator
       {
         if (a.score != b.score)
         {
