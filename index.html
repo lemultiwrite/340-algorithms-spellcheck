@@ -78,8 +78,49 @@
     function alignmentScore(word1, word2) {
       // TODO: build the (n+1) x (m+1) table and return the value in the
       // final (bottom-right) cell.
+      const rows = word1.length + 1;
+      const cols = word2.length + 1;
+      const arr = Array.from({ length: rows}, () => Array(cols).fill(0));
+
+      for (let i = 0; i < rows; i++)
+      {
+        arr[i][0] = i * 2;
+      }
+      for (let j = 0; j < cols; j++)
+      {
+        arr[0][j] = j * 2;
+      }
+
+      for (let i = 1; i < rows; i++)
+      {
+        for (let j = 1; j < cols; j++)
+        {
+          const char1 = word1[i - 1];
+          const char2 = word2[j - 1];
+
+          let pairPenalty; //why called let when doesn't need an assignment 
+          if (char1 == char2)
+          {
+            pairPenalty = 0;
+          }
+          else if (isVowel(char1) == isVowel(char2))
+          {
+            pairPenalty = 1;
+          }
+          else 
+          {
+            pairPenalty = 3;
+          }
+
+          const cross = arr[i - 1][j - 1] + pairPenalty;
+          const up = arr[i - 1][j] + 2;
+          const left = arr[i][j - 1] + 2;
+
+          arr[i][j] = Math.min(cross, up, left);
+        }
+      }
       
-      return 0;
+      return arr[word1.length][word2.length];
     }
 
     // PART 2 - Suggestions
