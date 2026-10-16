@@ -1,4 +1,4 @@
-# 340-algorithms-datastructures-spellcheck
+# 340-algorithms-spellcheck
 **yay. javascript**
 
 the bane of my existence
