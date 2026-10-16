@@ -33,7 +33,7 @@
 
     // Returns true if the character is a vowel.
     function isVowel(ch) {
-      return "aeiou".includes(ch);
+      return "aeiou".includes(ch); // may "y" rest in peace
     }
 
     // Displays a list of { word, score } objects in the results area.
@@ -60,6 +60,11 @@
     // YOUR WORK STARTS HERE
     // ==================================================================
 
+    function stripPunctuation(word) 
+    {
+      return word.replace(/[^a-z]/g, ""); // probably unnecessary, but it's necessary to me
+    }
+    
     // PART 1 - Sequence Alignment
     // Return the minimum alignment PENALTY between word1 and word2 using the
     // dynamic-programming sequence-alignment algorithm with these penalties:
@@ -73,6 +78,7 @@
     function alignmentScore(word1, word2) {
       // TODO: build the (n+1) x (m+1) table and return the value in the
       // final (bottom-right) cell.
+      
       return 0;
     }
 
@@ -82,9 +88,11 @@
     // scores. Each entry is an object: { word: "...", score: ... }.
     // Sort from best (lowest score) to worst, breaking ties alphabetically.
     function getSuggestions(typedWord) {
+      stripPunctuation(typedWord);
       // TODO: score every dictionary word and return the best 10.
       return [];
     }
+    // Finally be free of the ugly javascript
   </script>
 </body>
 </html>
